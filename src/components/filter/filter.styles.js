@@ -9,12 +9,14 @@ export const StyledDropdownMenu = styled.select`
   padding: 10px;
   width: 200px;
   padding: 20px;
+  padding-right: 40px;
   background-color: ${COLORS.white};
   color: ${COLORS.grey950};
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 14px;
   font-weight: 500;
+  /* appearance: none; */
 `;
 
 export const StyledFilterOption = styled.option`
