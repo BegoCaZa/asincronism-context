@@ -13,14 +13,13 @@ export const StyledCardContainer = styled.div`
 `;
 
 export const StyledFlagImage = styled.div`
+export const StyledFlagImage = styled.img`
   width: 100%;
   height: 150px;
   border-radius: 10px 10px 0 0;
-  background-image: url(${props => props.$src});
-  background-image: ${({ $src }) => `url(${$src})`};
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  src: ${({ $src }) => `url(${$src})`};
+  object-fit: cover;
+  object-position: center;
 `;
 export const StyledCountryInfoContainer = styled.div`
   width: 100%;

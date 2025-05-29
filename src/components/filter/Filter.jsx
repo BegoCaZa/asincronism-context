@@ -1,50 +1,30 @@
-import { useState } from 'react';
 import {
   StyledFilterContainer,
-  StyledFilterButton,
   StyledFilterOption,
-  StyledArrowIcon,
-  StyledFilterDropdownMenu
+  StyledDropdownMenu
 } from './filter.styles';
 
 const Filter = ({ filter, setFilter }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleFilterChange = region => {
-    setFilter(region);
-    setIsOpen(false);
+  const handleFilterChange = event => {
+    setFilter(event.target.value);
   };
 
-  const clearFilter = () => {
-    setFilter('');
-    setIsOpen(false);
-  };
+  //   const clearFilter = () => {
+  //     setFilter('');
+  //     setIsOpen(false);
+  //   };
 
   const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 
   return (
-    <StyledFilterContainer>
-      <StyledFilterButton onClick={() => setIsOpen(!isOpen)}>
-        {filter ? filter : 'Filter by Region'}
-        <StyledArrowIcon src='/assets/arrow.svg' $isOpen={isOpen} />
-      </StyledFilterButton>
-
-      {isOpen && (
-        <StyledFilterDropdownMenu>
-          <StyledFilterOption onClick={clearFilter}>
-            All Regions
-          </StyledFilterOption>
-          {regions.map(region => (
-            <StyledFilterOption
-              key={region}
-              onClick={() => handleFilterChange(region)}
-            >
-              {region}
-            </StyledFilterOption>
-          ))}
-        </StyledFilterDropdownMenu>
-      )}
-    </StyledFilterContainer>
+    <StyledDropdownMenu value={filter} onChange={handleFilterChange}>
+      <StyledFilterOption value='default'>Filter by Region</StyledFilterOption>
+      {regions.map(region => (
+        <StyledFilterOption key={region} value={region}>
+          {region}
+        </StyledFilterOption>
+      ))}
+    </StyledDropdownMenu>
   );
 };
 export default Filter;

@@ -14,7 +14,7 @@ const CountryCard = ({ country }) => {
   return (
     <>
       <StyledCardContainer>
-        <StyledFlagImage $src={country?.flags?.svg} />
+        <StyledFlagImage src={country?.flags?.svg} />
         <StyledCountryInfoContainer>
           <StyledCountryName>{country?.name?.common}</StyledCountryName>
           <StyledLabelContainer>
@@ -24,7 +24,7 @@ const CountryCard = ({ country }) => {
 
           <StyledLabelContainer>
             <StyledLabelTitle>Region</StyledLabelTitle>
-            <StyledData>{country?.population}</StyledData>
+            <StyledData>{country?.region}</StyledData>
           </StyledLabelContainer>
 
           <StyledLabelContainer>

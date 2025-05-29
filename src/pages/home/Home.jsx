@@ -7,34 +7,28 @@ const Home = () => {
   const [countries, setCountry] = useState([]);
   const [filter, setFilter] = useState('');
 
-  let filteredCountries = [];
-
   useEffect(() => {
     getCountry(setCountry);
   }, []);
 
-  if (filter) {
-    filteredCountries = countries.filter(country => country.region === filter);
-
-    return (
-      <StyledCardsContainer>
-        <Filter filter={filter} setFilter={setFilter} />
-        {filteredCountries.map(country => (
-          <CountryCard key={country.name.common} country={country} />
-        ))}
-      </StyledCardsContainer>
-    );
-  }
+  const filteredCountries = getFilteredCountries({ filter, countries });
 
   return (
     <StyledCardsContainer>
       <Filter filter={filter} setFilter={setFilter} />
       {/* <StyledSearchBar /> */}
-      {countries.map(country => (
+      {filteredCountries.map(country => (
         <CountryCard key={country.name.common} country={country} />
       ))}
     </StyledCardsContainer>
   );
+};
+
+const getFilteredCountries = ({ filter, countries }) => {
+  if (!filter || filter === 'default') {
+    return countries;
+  }
+  return countries.filter(country => country.region === filter);
 };
 
 const getCountry = async setCountry => {
