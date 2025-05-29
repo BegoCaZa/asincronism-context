@@ -1,11 +1,17 @@
-import { StyledHeaderContainer } from './header.styles';
+import {
+  StyledHeaderContainer,
+  StyledTitle,
+  StyledDarkModeButton,
+  StyledDarkModeText,
+  StyledIcon
+} from './header.styles';
 
 const Header = () => {
   return (
     <StyledHeaderContainer>
       <StyledTitle>Where in the world?</StyledTitle>
       <StyledDarkModeButton>
-        <StyledIcon />
+        <StyledIcon src='public/assets/moon_icon.svg' />
         <StyledDarkModeText>Dark Mode</StyledDarkModeText>
       </StyledDarkModeButton>
     </StyledHeaderContainer>

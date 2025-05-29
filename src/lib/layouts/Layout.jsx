@@ -1,7 +1,12 @@
-import { useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import Header from '../../components/header/Header';
 
 const Layout = () => {
-  const location = useLocation();
-
-  return <></>;
+  return (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  );
 };
+export default Layout;

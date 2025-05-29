@@ -1,14 +1,13 @@
-import Button from './button/Button';
+import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyles } from './styles/GlobalStyles';
+import Router from './lib/router/Router';
 
 const App = () => {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyles />
-      <h1>REACT</h1>
-      <Button color='lime' hoverColor='red' />
-      <Button color='orange' hoverColor='purple' />
-    </>
+      <Router />
+    </BrowserRouter>
   );
 };
 
