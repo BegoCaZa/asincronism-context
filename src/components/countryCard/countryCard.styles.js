@@ -17,6 +17,7 @@ export const StyledFlagImage = styled.div`
   height: 150px;
   border-radius: 10px 10px 0 0;
   background-image: url(${props => props.$src});
+  background-image: ${({ $src }) => `url(${$src})`};
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
