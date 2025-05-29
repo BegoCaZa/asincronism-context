@@ -7,14 +7,19 @@ export const StyledCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 90%;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: ${COLORS.white};
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
-export const StyledFlagImage = styled.img`
+export const StyledFlagImage = styled.div`
   width: 100%;
   height: 150px;
-  border-radius: 20px 20px 0 0;
+  border-radius: 10px 10px 0 0;
+  background-image: url(${props => props.$src});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 export const StyledCountryInfoContainer = styled.div`
   width: 100%;
