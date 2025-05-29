@@ -1,4 +1,13 @@
 import { useEffect, useState } from 'react';
+import {
+  StyledCardContainer,
+  StyledFlagImage,
+  StyledCountryInfoContainer,
+  StyledCountryName,
+  StyledLabelContainer,
+  StyledLabelTitle,
+  StyledData
+} from './countryCard.styles';
 
 const CountryCard = () => {
   const [countries, setCountry] = useState([]);
@@ -26,7 +35,7 @@ const CountryCard = () => {
 
             <StyledLabelContainer>
               <StyledLabelTitle>Capital</StyledLabelTitle>
-              <StyledData>{country?.capital[0]}</StyledData>
+              <StyledData>{country?.capital}</StyledData>
             </StyledLabelContainer>
           </StyledCountryInfoContainer>
         </StyledCardContainer>
