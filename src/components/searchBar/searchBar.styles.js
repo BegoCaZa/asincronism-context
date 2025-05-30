@@ -6,6 +6,10 @@ export const StyledSearchContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+
+  @media (min-width: 1200px) {
+    width: 480px;
+  }
 `;
 
 export const StyledSearchIcon = styled.img`
@@ -22,7 +26,7 @@ export const StyledSearchInput = styled.input`
   border: none;
   border-radius: 10px;
   background-color: ${COLORS.white};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   font-size: 14px;
   color: ${COLORS.grey950};
   font-weight: 600;

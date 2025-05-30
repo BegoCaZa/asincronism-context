@@ -7,7 +7,11 @@ export const StyledCardsContainer = styled.div`
   justify-content: center;
   width: 100%;
   padding: 20px;
-  gap: 20px;
+  gap: 40px;
+
+  @media (min-width: 768px) {
+    padding: 40px;
+  }
 `;
 
 export const StyledFiltersContainer = styled.div`
