@@ -12,7 +12,6 @@ export const StyledCardContainer = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
-export const StyledFlagImage = styled.div`
 export const StyledFlagImage = styled.img`
   width: 100%;
   height: 150px;

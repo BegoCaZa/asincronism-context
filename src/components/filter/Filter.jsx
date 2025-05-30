@@ -1,8 +1,4 @@
-import {
-  StyledFilterContainer,
-  StyledFilterOption,
-  StyledDropdownMenu
-} from './filter.styles';
+import { StyledFilterOption, StyledDropdownMenu } from './filter.styles';
 
 const Filter = ({ filter, setFilter }) => {
   const handleFilterChange = event => {
@@ -14,7 +10,7 @@ const Filter = ({ filter, setFilter }) => {
   //     setIsOpen(false);
   //   };
 
-  const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+  const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
   return (
     <StyledDropdownMenu value={filter} onChange={handleFilterChange}>

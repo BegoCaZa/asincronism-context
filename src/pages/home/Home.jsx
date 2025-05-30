@@ -1,30 +1,49 @@
 import CountryCard from '../../components/countryCard/CountryCard';
 import Filter from '../../components/filter/Filter';
-import { StyledCardsContainer } from './home.styles';
+import StyledSearchBar from '../../components/searchBar/SearchBar';
+import {
+  StyledCardsContainer,
+  StyledFiltersContainer,
+  StyledCardsGrid
+} from './home.styles';
 import { useEffect, useState } from 'react';
 
 const Home = () => {
   const [countries, setCountry] = useState([]);
   const [filter, setFilter] = useState('');
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     getCountry(setCountry);
   }, []);
 
-  const filteredCountries = getFilteredCountries({ filter, countries });
+  const filteredCountries = getFilteredCountries({ filter, countries, search });
 
   return (
     <StyledCardsContainer>
-      <Filter filter={filter} setFilter={setFilter} />
-      {/* <StyledSearchBar /> */}
-      {filteredCountries.map(country => (
-        <CountryCard key={country.name.common} country={country} />
-      ))}
+      <StyledFiltersContainer>
+        <StyledSearchBar setSearch={setSearch} />
+        <Filter filter={filter} setFilter={setFilter} />
+      </StyledFiltersContainer>
+
+      <StyledCardsGrid>
+        {filteredCountries.map(country => (
+          <CountryCard key={country.name.common} country={country} />
+        ))}
+      </StyledCardsGrid>
     </StyledCardsContainer>
   );
 };
 
-const getFilteredCountries = ({ filter, countries }) => {
+const getFilteredCountries = ({ filter, countries, search }) => {
+  //por busqueda
+  if (search) {
+    return countries.filter(country =>
+      country.name.common.toLowerCase().includes(search.toLowerCase())
+    );
+  }
+
+  //buscador select por region
   if (!filter || filter === 'default') {
     return countries;
   }
