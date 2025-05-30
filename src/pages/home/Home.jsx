@@ -18,7 +18,10 @@ const Home = () => {
     getCountry(setCountries);
   }, []);
 
-  const filteredCountries = getFilteredCountries({ filter, countries, search });
+  const filteredCountries = getFilteresCountriesByName(
+    getFilteredCountriesByRegion(filter, countries),
+    search
+  );
 
   return (
     <StyledCardsContainer>
@@ -42,18 +45,15 @@ const Home = () => {
   );
 };
 
-const getFilteredCountries = ({ filter, countries, search }) => {
-  //por busqueda
-  if (search) {
-    return countries.filter(country =>
-      country.name.common.toLowerCase().includes(search.toLowerCase())
-    );
-  }
+const getFilteresCountriesByName = (countries, search) => {
+  if (!search) return countries;
+  return countries.filter(country =>
+    country.name.common.toLowerCase().includes(search.toLowerCase())
+  );
+};
 
-  //buscador select por region
-  if (!filter || filter === 'default') {
-    return countries;
-  }
+const getFilteredCountriesByRegion = (filter, countries) => {
+  if (!filter || filter === 'default') return countries;
   return countries.filter(country => country.region === filter);
 };
 
