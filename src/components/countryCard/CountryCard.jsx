@@ -18,17 +18,17 @@ const CountryCard = ({ country }) => {
         <StyledCountryInfoContainer>
           <StyledCountryName>{country?.name?.common}</StyledCountryName>
           <StyledLabelContainer>
-            <StyledLabelTitle>Population</StyledLabelTitle>
+            <StyledLabelTitle>Population:</StyledLabelTitle>
             <StyledData>{country?.population}</StyledData>
           </StyledLabelContainer>
 
           <StyledLabelContainer>
-            <StyledLabelTitle>Region</StyledLabelTitle>
+            <StyledLabelTitle>Region:</StyledLabelTitle>
             <StyledData>{country?.region}</StyledData>
           </StyledLabelContainer>
 
           <StyledLabelContainer>
-            <StyledLabelTitle>Capital</StyledLabelTitle>
+            <StyledLabelTitle>Capital:</StyledLabelTitle>
             <StyledData>{country?.capital}</StyledData>
           </StyledLabelContainer>
         </StyledCountryInfoContainer>

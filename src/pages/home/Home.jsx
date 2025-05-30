@@ -4,17 +4,18 @@ import StyledSearchBar from '../../components/searchBar/SearchBar';
 import {
   StyledCardsContainer,
   StyledFiltersContainer,
-  StyledCardsGrid
+  StyledCardsGrid,
+  StyledLink
 } from './home.styles';
 import { useEffect, useState } from 'react';
 
 const Home = () => {
-  const [countries, setCountry] = useState([]);
+  const [countries, setCountries] = useState([]);
   const [filter, setFilter] = useState('');
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    getCountry(setCountry);
+    getCountry(setCountries);
   }, []);
 
   const filteredCountries = getFilteredCountries({ filter, countries, search });
@@ -28,7 +29,13 @@ const Home = () => {
 
       <StyledCardsGrid>
         {filteredCountries.map(country => (
-          <CountryCard key={country.name.common} country={country} />
+          <StyledLink
+            key={country.name.common}
+            to={`/country/${country.name.common.toLowerCase()}`}
+            state={country}
+          >
+            <CountryCard country={country} />
+          </StyledLink>
         ))}
       </StyledCardsGrid>
     </StyledCardsContainer>
@@ -50,11 +57,11 @@ const getFilteredCountries = ({ filter, countries, search }) => {
   return countries.filter(country => country.region === filter);
 };
 
-const getCountry = async setCountry => {
+const getCountry = async setCountries => {
   try {
     const response = await fetch('https://restcountries.com/v3.1/all');
     const countries = await response.json();
-    setCountry(countries);
+    setCountries(countries);
   } catch (error) {
     console.log(error);
   }
