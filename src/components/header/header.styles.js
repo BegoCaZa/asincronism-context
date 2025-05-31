@@ -32,6 +32,7 @@ export const StyledDarkModeButton = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 90px;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     width: 130px;
