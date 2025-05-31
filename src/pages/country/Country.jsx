@@ -13,7 +13,9 @@ import {
   StyledInfo,
   StyledArrowIcon,
   StyledBorderContriesContainer,
-  StyledBorderCountriesTitle
+  StyledBorderCountriesTitle,
+  StyledButtonsGrid,
+  StyledBorderCountryButton
 } from './country.styles';
 const Country = () => {
   const { state } = useLocation();
@@ -85,11 +87,17 @@ const Country = () => {
           <StyledBorderCountriesTitle>
             Border Countries:
           </StyledBorderCountriesTitle>
-          {borderCountries.map(country => (
-            <button key={country} state={state}>
-              {country}
-            </button>
-          ))}
+          <StyledButtonsGrid>
+            {borderCountries.map(country => (
+              <StyledBorderCountryButton
+                key={country}
+                state={state}
+                to={`/country/${country}`}
+              >
+                {country}
+              </StyledBorderCountryButton>
+            ))}
+          </StyledButtonsGrid>
         </StyledBorderContriesContainer>
       </StyledCountryContainer>
     </StyledGeneralContainer>

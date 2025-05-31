@@ -105,10 +105,11 @@ export const StyledInfo = styled.span`
 
 export const StyledBorderContriesContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
+  gap: 20px;
 `;
 
 export const StyledBorderCountriesTitle = styled.span`
@@ -116,4 +117,29 @@ export const StyledBorderCountriesTitle = styled.span`
   font-weight: 600;
   color: ${COLORS.black};
   margin-right: 20px;
+`;
+
+export const StyledButtonsGrid = styled.div`
+  display: flex;
+  flex-wrap: row;
+  gap: 10px;
+  width: 100%;
+`;
+
+export const StyledBorderCountryButton = styled(Link)`
+  background-color: ${COLORS.white};
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: ${COLORS.black};
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    color: ${COLORS.grey250};
+  }
 `;
