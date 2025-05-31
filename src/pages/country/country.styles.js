@@ -64,12 +64,25 @@ export const StyledCountryContainer = styled.div`
   justify-content: center;
   width: 95%;
   gap: 20px;
+
+  @media (min-width: 1400px) {
+    flex-direction: row;
+    gap: 50px;
+  }
 `;
 export const StyledFlagImage = styled.img`
   width: 100%;
   height: auto;
   border-radius: 8px;
   margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    border-radius: 18px;
+  }
+
+  @media (min-width: 1400px) {
+    width: 560px;
+  }
 `;
 
 export const StyledCountryInfo = styled.div`
@@ -100,7 +113,7 @@ export const StyledCountryName = styled.span`
   color: ${COLORS.black};
 
   @media (min-width: 768px) {
-    font-size: 34px;
+    font-size: 40px;
   }
 `;
 
@@ -132,7 +145,7 @@ export const StyledInfoLabel = styled.span`
   color: ${COLORS.black};
 
   @media (min-width: 768px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 export const StyledInfo = styled.span`
@@ -141,7 +154,7 @@ export const StyledInfo = styled.span`
   color: ${COLORS.black};
 
   @media (min-width: 768px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 
@@ -155,8 +168,7 @@ export const StyledBorderContriesContainer = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
-
-    align-items: center;
+    gap: 0px;
   }
 `;
 
@@ -167,7 +179,7 @@ export const StyledBorderCountriesTitle = styled.span`
   margin-right: 20px;
 
   @media (min-width: 768px) {
-    font-size: 18px;
+    font-size: 24px;
   }
 `;
 
@@ -193,4 +205,11 @@ export const StyledBorderCountryButton = styled(Link)`
   &:hover {
     color: ${COLORS.grey250};
   }
+`;
+
+export const StyledGeneralInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
 `;

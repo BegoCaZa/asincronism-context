@@ -13,7 +13,7 @@ export const StyledHeaderContainer = styled.header`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   @media (min-width: 768px) {
-    padding: 50px 50px;
+    padding: 50px 90px;
   }
 `;
 
@@ -22,7 +22,7 @@ export const StyledTitle = styled.span`
   font-weight: 700;
 
   @media (min-width: 768px) {
-    font-size: 24px;
+    font-size: 30px;
   }
 `;
 
@@ -32,14 +32,27 @@ export const StyledDarkModeButton = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 90px;
+
+  @media (min-width: 768px) {
+    width: 130px;
+  }
 `;
 
 export const StyledIcon = styled.img`
   width: 18px;
   height: 18px;
+
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 export const StyledDarkModeText = styled.span`
   font-size: 14px;
   font-weight: 700;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
 `;

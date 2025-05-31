@@ -16,7 +16,8 @@ import {
   StyledBorderCountriesTitle,
   StyledButtonsGrid,
   StyledBorderCountryButton,
-  StyledNameContainer
+  StyledNameContainer,
+  StyledGeneralInfoContainer
 } from './country.styles';
 const Country = () => {
   const { state } = useLocation();
@@ -35,73 +36,78 @@ const Country = () => {
       </StyledButtonContainer>
       <StyledCountryContainer>
         <StyledFlagImage src={state.flags.svg} />
-        <StyledNameContainer>
-          <StyledCountryName>{state.name.common}</StyledCountryName>
-        </StyledNameContainer>
-        <StyledCountryInfo>
-          <StyledCountryData>
-            <StyledDataItem>
-              <StyledInfoLabel>Native Name:</StyledInfoLabel>
-              <StyledInfo>
-                {Object.values(state.name.nativeName)[0]?.common}
-              </StyledInfo>
-            </StyledDataItem>
 
-            <StyledDataItem>
-              <StyledInfoLabel>Population:</StyledInfoLabel>
-              <StyledInfo>{state.population}</StyledInfo>
-            </StyledDataItem>
+        <StyledGeneralInfoContainer>
+          <StyledNameContainer>
+            <StyledCountryName>{state.name.common}</StyledCountryName>
+          </StyledNameContainer>
+          <StyledCountryInfo>
+            <StyledCountryData>
+              <StyledDataItem>
+                <StyledInfoLabel>Native Name:</StyledInfoLabel>
+                <StyledInfo>
+                  {Object.values(state.name.nativeName)[0]?.common}
+                </StyledInfo>
+              </StyledDataItem>
 
-            <StyledDataItem>
-              <StyledInfoLabel>Region:</StyledInfoLabel>
-              <StyledInfo>{Object.values(state.region)}</StyledInfo>
-            </StyledDataItem>
+              <StyledDataItem>
+                <StyledInfoLabel>Population:</StyledInfoLabel>
+                <StyledInfo>{state.population}</StyledInfo>
+              </StyledDataItem>
 
-            <StyledDataItem>
-              <StyledInfoLabel>Sub Region:</StyledInfoLabel>
-              <StyledInfo>{Object.values(state.subregion)}</StyledInfo>
-            </StyledDataItem>
+              <StyledDataItem>
+                <StyledInfoLabel>Region:</StyledInfoLabel>
+                <StyledInfo>{Object.values(state.region)}</StyledInfo>
+              </StyledDataItem>
 
-            <StyledDataItem>
-              <StyledInfoLabel>Capital:</StyledInfoLabel>
-              <StyledInfo>{Object.values(state.capital)}</StyledInfo>
-            </StyledDataItem>
-          </StyledCountryData>
+              <StyledDataItem>
+                <StyledInfoLabel>Sub Region:</StyledInfoLabel>
+                <StyledInfo>{Object.values(state.subregion)}</StyledInfo>
+              </StyledDataItem>
 
-          <StyledCountryData>
-            <StyledDataItem>
-              <StyledInfoLabel>Top Level Domain:</StyledInfoLabel>
-              <StyledInfo>{state.tld}</StyledInfo>
-            </StyledDataItem>
+              <StyledDataItem>
+                <StyledInfoLabel>Capital:</StyledInfoLabel>
+                <StyledInfo>{Object.values(state.capital)}</StyledInfo>
+              </StyledDataItem>
+            </StyledCountryData>
 
-            <StyledDataItem>
-              <StyledInfoLabel>Currencies:</StyledInfoLabel>
-              <StyledInfo>{Object.values(state.currencies)[0].name}</StyledInfo>
-            </StyledDataItem>
+            <StyledCountryData>
+              <StyledDataItem>
+                <StyledInfoLabel>Top Level Domain:</StyledInfoLabel>
+                <StyledInfo>{state.tld}</StyledInfo>
+              </StyledDataItem>
 
-            <StyledDataItem>
-              <StyledInfoLabel>Languages:</StyledInfoLabel>
-              <StyledInfo>{Object.values(state.languages)}</StyledInfo>
-            </StyledDataItem>
-          </StyledCountryData>
-        </StyledCountryInfo>
+              <StyledDataItem>
+                <StyledInfoLabel>Currencies:</StyledInfoLabel>
+                <StyledInfo>
+                  {Object.values(state.currencies)[0].name}
+                </StyledInfo>
+              </StyledDataItem>
 
-        <StyledBorderContriesContainer>
-          <StyledBorderCountriesTitle>
-            Border Countries:
-          </StyledBorderCountriesTitle>
-          <StyledButtonsGrid>
-            {borderCountries.map(country => (
-              <StyledBorderCountryButton
-                key={country}
-                state={state}
-                to={`/country/${country}`}
-              >
-                {country}
-              </StyledBorderCountryButton>
-            ))}
-          </StyledButtonsGrid>
-        </StyledBorderContriesContainer>
+              <StyledDataItem>
+                <StyledInfoLabel>Languages:</StyledInfoLabel>
+                <StyledInfo>{Object.values(state.languages)}</StyledInfo>
+              </StyledDataItem>
+            </StyledCountryData>
+          </StyledCountryInfo>
+
+          <StyledBorderContriesContainer>
+            <StyledBorderCountriesTitle>
+              Border Countries:
+            </StyledBorderCountriesTitle>
+            <StyledButtonsGrid>
+              {borderCountries.map(country => (
+                <StyledBorderCountryButton
+                  key={country}
+                  state={state}
+                  to={`/country/${country}`}
+                >
+                  {country}
+                </StyledBorderCountryButton>
+              ))}
+            </StyledButtonsGrid>
+          </StyledBorderContriesContainer>
+        </StyledGeneralInfoContainer>
       </StyledCountryContainer>
     </StyledGeneralContainer>
   );
