@@ -11,7 +11,7 @@ const Header = () => {
     <StyledHeaderContainer>
       <StyledTitle>Where in the world?</StyledTitle>
       <StyledDarkModeButton>
-        <StyledIcon src='public/assets/moon_icon.svg' />
+        <StyledIcon src='/assets/moon_icon.svg' />
         <StyledDarkModeText>Dark Mode</StyledDarkModeText>
       </StyledDarkModeButton>
     </StyledHeaderContainer>

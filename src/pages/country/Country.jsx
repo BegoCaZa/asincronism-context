@@ -10,15 +10,25 @@ import {
   StyledCountryData,
   StyledDataItem,
   StyledInfoLabel,
-  StyledInfo
+  StyledInfo,
+  StyledArrowIcon,
+  StyledBorderContriesContainer,
+  StyledBorderCountriesTitle
 } from './country.styles';
 const Country = () => {
   const { state } = useLocation();
+
+  const borderCountries = state.borders;
+  console.log(borderCountries);
+
   console.log(state);
   return (
     <StyledGeneralContainer>
       <StyledButtonContainer>
-        <StyledBackButton to='/'>Back</StyledBackButton>
+        <StyledBackButton to='/'>
+          <StyledArrowIcon src='/assets/arrow.svg' />
+          Back
+        </StyledBackButton>
       </StyledButtonContainer>
       <StyledCountryContainer>
         <StyledFlagImage src={state.flags.svg} />
@@ -52,9 +62,36 @@ const Country = () => {
               <StyledInfo>{Object.values(state.capital)}</StyledInfo>
             </StyledDataItem>
           </StyledCountryData>
+
+          <StyledCountryData>
+            <StyledDataItem>
+              <StyledInfoLabel>Top Level Domain:</StyledInfoLabel>
+              <StyledInfo>{state.tld}</StyledInfo>
+            </StyledDataItem>
+
+            <StyledDataItem>
+              <StyledInfoLabel>Currencies:</StyledInfoLabel>
+              <StyledInfo>{Object.values(state.currencies)[0].name}</StyledInfo>
+            </StyledDataItem>
+
+            <StyledDataItem>
+              <StyledInfoLabel>Languages:</StyledInfoLabel>
+              <StyledInfo>{Object.values(state.languages)}</StyledInfo>
+            </StyledDataItem>
+          </StyledCountryData>
         </StyledCountryInfo>
+
+        <StyledBorderContriesContainer>
+          <StyledBorderCountriesTitle>
+            Border Countries:
+          </StyledBorderCountriesTitle>
+          {borderCountries.map(country => (
+            <button key={country} state={state}>
+              {country}
+            </button>
+          ))}
+        </StyledBorderContriesContainer>
       </StyledCountryContainer>
-      {/* <span>{state.name.common}</span> */}
     </StyledGeneralContainer>
   );
 };
