@@ -35,18 +35,21 @@ export const StyledFiltersContainer = styled.div`
 `;
 
 export const StyledCardsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
   gap: 20px;
-  justify-items: center;
 
   @media (min-width: 768px) {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
   }
 
   @media (min-width: 1200px) {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
   }
