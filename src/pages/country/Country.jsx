@@ -15,7 +15,8 @@ import {
   StyledBorderContriesContainer,
   StyledBorderCountriesTitle,
   StyledButtonsGrid,
-  StyledBorderCountryButton
+  StyledBorderCountryButton,
+  StyledNameContainer
 } from './country.styles';
 const Country = () => {
   const { state } = useLocation();
@@ -34,8 +35,10 @@ const Country = () => {
       </StyledButtonContainer>
       <StyledCountryContainer>
         <StyledFlagImage src={state.flags.svg} />
-        <StyledCountryInfo>
+        <StyledNameContainer>
           <StyledCountryName>{state.name.common}</StyledCountryName>
+        </StyledNameContainer>
+        <StyledCountryInfo>
           <StyledCountryData>
             <StyledDataItem>
               <StyledInfoLabel>Native Name:</StyledInfoLabel>
