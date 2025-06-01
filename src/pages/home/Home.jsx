@@ -8,6 +8,8 @@ import {
   StyledLink
 } from './home.styles';
 import { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { DarkModeContext } from '../../lib/contexts/darkMode.context';
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -23,8 +25,10 @@ const Home = () => {
     search
   );
 
+  const { darkMode } = useContext(DarkModeContext);
+
   return (
-    <StyledCardsContainer>
+    <StyledCardsContainer $darkMode={darkMode}>
       <StyledFiltersContainer>
         <StyledSearchBar setSearch={setSearch} />
         <Filter filter={filter} setFilter={setFilter} />

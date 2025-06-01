@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { COLORS } from '../../styles/colors';
 
 export const StyledLink = styled(Link)`
   display: block;
@@ -13,6 +14,9 @@ export const StyledCardsContainer = styled.div`
   width: 100%;
   padding: 20px;
   gap: 40px;
+  background-color: ${({ $darkMode }) =>
+    $darkMode ? COLORS.darkModeBodyBackground : COLORS.grey50};
+  color: ${({ $darkMode }) => ($darkMode ? COLORS.white : COLORS.grey950)};
 
   @media (min-width: 768px) {
     padding: 40px;

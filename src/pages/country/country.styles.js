@@ -55,10 +55,9 @@ export const StyledBackButton = styled(Link)`
 `;
 
 export const StyledArrowIcon = styled.img`
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   margin-right: 10px;
-  transform: rotate(90deg);
 `;
 
 export const StyledCountryContainer = styled.div`
@@ -190,11 +189,12 @@ export const StyledButtonsGrid = styled.div`
 `;
 
 export const StyledBorderCountryButton = styled(Link)`
-  background-color: ${COLORS.white};
+  background-color: ${({ $darkMode }) =>
+    $darkMode ? COLORS.darkModeHeaderBackground : COLORS.white};
   border: none;
   cursor: pointer;
   font-size: 16px;
-  color: ${COLORS.black};
+  color: ${({ $darkMode }) => ($darkMode ? COLORS.white : COLORS.grey950)};
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;

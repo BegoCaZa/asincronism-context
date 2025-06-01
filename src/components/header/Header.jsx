@@ -14,7 +14,9 @@ const Header = () => {
     <StyledHeaderContainer $darkMode={darkMode}>
       <StyledTitle>Where in the world?</StyledTitle>
       <StyledDarkModeButton onClick={toggleDarkMode}>
-        <StyledIcon src='/assets/moon_icon.svg' />
+        <StyledIcon
+          src={darkMode ? '/assets/sun.svg' : '/assets/moon_icon.svg'}
+        />
         <StyledDarkModeText>Dark Mode</StyledDarkModeText>
       </StyledDarkModeButton>
     </StyledHeaderContainer>

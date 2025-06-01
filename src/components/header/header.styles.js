@@ -34,7 +34,7 @@ export const StyledDarkModeButton = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 90px;
+  width: 95px;
   cursor: pointer;
 
   @media (min-width: 768px) {

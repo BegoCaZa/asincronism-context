@@ -106,6 +106,7 @@ const Country = () => {
                 <StyledBorderCountryButton
                   key={country}
                   state={state}
+                  $darkMode={darkMode}
                   to={`/country/${country}`}
                 >
                   {country}
