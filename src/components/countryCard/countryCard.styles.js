@@ -8,7 +8,10 @@ export const StyledCardContainer = styled.div`
   align-items: center;
   width: 100%;
   border-radius: 10px;
-  background-color: ${COLORS.white};
+  background-color: ${({ $darkMode }) =>
+    $darkMode ? COLORS.darkModeHeaderBackground : COLORS.white};
+  color: ${({ $darkMode }) => ($darkMode ? COLORS.white : COLORS.grey950)};
+
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
@@ -33,7 +36,6 @@ export const StyledCountryInfoContainer = styled.div`
 export const StyledCountryName = styled.span`
   font-size: 19px;
   font-weight: 700;
-  color: ${COLORS.grey950};
 `;
 
 export const StyledLabelContainer = styled.div`
@@ -46,10 +48,8 @@ export const StyledLabelContainer = styled.div`
 export const StyledLabelTitle = styled.span`
   font-size: 14px;
   font-weight: 600;
-  color: ${COLORS.grey950};
 `;
 export const StyledData = styled.span`
   font-size: 14px;
   font-weight: 400;
-  color: ${COLORS.grey950};
 `;

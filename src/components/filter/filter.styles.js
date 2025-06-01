@@ -20,13 +20,13 @@ export const StyledDropdownMenu = styled.select`
   font-weight: 500;
   appearance: none;
 
-  /* background-image: url(${({ $darkMode }) =>
+  background-image: ${({ $darkMode }) =>
     $darkMode
-      ? '/assets/dropdownArrowDarkMode.svg'
-      : '/assets/dropdownArrowLightMode.svg'});
+      ? `url('/assets/dropdownArrowDarkMode.svg')`
+      : `url('/assets/dropdownArrowLightMode.svg')`};
   background-repeat: no-repeat;
   background-position: right 15px center;
-  background-size: 10px; */
+  background-size: 10px;
 `;
 
 export const StyledFilterOption = styled.option`

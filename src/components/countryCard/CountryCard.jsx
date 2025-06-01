@@ -8,12 +8,15 @@ import {
   StyledLabelTitle,
   StyledData
 } from './countryCard.styles';
+import { useContext } from 'react';
+import { DarkModeContext } from '../../lib/contexts/darkMode.context';
 
 const CountryCard = ({ country }) => {
   //este recibira el filtro de paises
+  const { darkMode } = useContext(DarkModeContext);
   return (
     <>
-      <StyledCardContainer>
+      <StyledCardContainer $darkMode={darkMode}>
         <StyledFlagImage src={country?.flags?.svg} />
         <StyledCountryInfoContainer>
           <StyledCountryName>{country?.name?.common}</StyledCountryName>
