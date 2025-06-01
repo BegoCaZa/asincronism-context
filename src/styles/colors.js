@@ -8,5 +8,10 @@ export const COLORS = {
   grey250: '#C4C4C4',
   grey50: '#FCFCFC',
   blue950: '#202C36',
-  blue900: '#2B3844'
+  blue900: '#2B3844',
+
+  // Dark mode
+  darkBlue800: '#2b3844',
+  darkBlue900: '#202c36',
+  darkBlue950: '#111517'
 };
