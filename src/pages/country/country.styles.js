@@ -10,6 +10,9 @@ export const StyledGeneralContainer = styled.div`
   width: 100%;
   padding: 20px;
   gap: 40px;
+  background-color: ${({ $darkMode }) =>
+    $darkMode ? COLORS.darkModeBodyBackground : COLORS.white};
+  color: ${({ $darkMode }) => ($darkMode ? COLORS.white : COLORS.grey950)};
 
   @media (min-width: 768px) {
     padding: 20px 80px;
@@ -28,11 +31,12 @@ export const StyledButtonContainer = styled.div`
   }
 `;
 export const StyledBackButton = styled(Link)`
-  background-color: ${COLORS.white};
+  background-color: ${({ $darkMode }) =>
+    $darkMode ? COLORS.darkModeHeaderBackground : COLORS.white};
   border: none;
   cursor: pointer;
   font-size: 16px;
-  color: ${COLORS.black};
+  color: ${({ $darkMode }) => ($darkMode ? COLORS.white : COLORS.grey950)};
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -110,7 +114,6 @@ export const StyledNameContainer = styled.div`
 export const StyledCountryName = styled.span`
   font-size: 24px;
   font-weight: 700;
-  color: ${COLORS.black};
 
   @media (min-width: 768px) {
     font-size: 40px;
@@ -142,7 +145,6 @@ export const StyledDataItem = styled.div`
 export const StyledInfoLabel = styled.span`
   font-size: 14px;
   font-weight: 600;
-  color: ${COLORS.black};
 
   @media (min-width: 768px) {
     font-size: 16px;
@@ -151,7 +153,6 @@ export const StyledInfoLabel = styled.span`
 export const StyledInfo = styled.span`
   font-size: 14px;
   font-weight: 200;
-  color: ${COLORS.black};
 
   @media (min-width: 768px) {
     font-size: 16px;
@@ -175,7 +176,6 @@ export const StyledBorderContriesContainer = styled.div`
 export const StyledBorderCountriesTitle = styled.span`
   font-size: 16px;
   font-weight: 600;
-  color: ${COLORS.black};
   margin-right: 20px;
 
   @media (min-width: 768px) {

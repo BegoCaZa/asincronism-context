@@ -9,7 +9,10 @@ export const StyledHeaderContainer = styled.header`
   width: 100%;
   padding: 50px 20px;
   margin: 0;
-  background-color: ${COLORS.white};
+  background-color: ${({ $darkMode }) =>
+    $darkMode ? COLORS.darkModeHeaderBackground : COLORS.white};
+  color: ${({ $darkMode }) => ($darkMode ? COLORS.white : COLORS.grey950)};
+
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   @media (min-width: 768px) {

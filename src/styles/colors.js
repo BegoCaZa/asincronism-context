@@ -11,7 +11,6 @@ export const COLORS = {
   blue900: '#2B3844',
 
   // Dark mode
-  darkBlue800: '#2b3844',
-  darkBlue900: '#202c36',
-  darkBlue950: '#111517'
+  darkModeBodyBackground: '#202C36',
+  darkModeHeaderBackground: '#2B3844'
 };

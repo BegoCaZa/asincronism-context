@@ -5,12 +5,15 @@ import {
   StyledDarkModeText,
   StyledIcon
 } from './header.styles';
+import { useContext } from 'react';
+import { DarkModeContext } from '../../lib/contexts/darkMode.context';
 
 const Header = () => {
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   return (
-    <StyledHeaderContainer>
+    <StyledHeaderContainer $darkMode={darkMode}>
       <StyledTitle>Where in the world?</StyledTitle>
-      <StyledDarkModeButton>
+      <StyledDarkModeButton onClick={toggleDarkMode}>
         <StyledIcon src='/assets/moon_icon.svg' />
         <StyledDarkModeText>Dark Mode</StyledDarkModeText>
       </StyledDarkModeButton>

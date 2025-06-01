@@ -19,18 +19,24 @@ import {
   StyledNameContainer,
   StyledGeneralInfoContainer
 } from './country.styles';
+import { useContext } from 'react';
+import { DarkModeContext } from '../../lib/contexts/darkMode.context';
 const Country = () => {
   const { state } = useLocation();
+
+  const { darkMode } = useContext(DarkModeContext);
 
   const borderCountries = state.borders;
   console.log(borderCountries);
 
   console.log(state);
   return (
-    <StyledGeneralContainer>
+    <StyledGeneralContainer $darkMode={darkMode}>
       <StyledButtonContainer>
-        <StyledBackButton to='/'>
-          <StyledArrowIcon src='/assets/arrow.svg' />
+        <StyledBackButton to='/' $darkMode={darkMode}>
+          <StyledArrowIcon
+            src={darkMode ? '/assets/arrow_light.svg' : '/assets/arrow.svg'}
+          />
           Back
         </StyledBackButton>
       </StyledButtonContainer>
