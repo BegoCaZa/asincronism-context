@@ -13,7 +13,9 @@ export const StyledHeaderContainer = styled.header`
     $darkMode ? COLORS.darkModeHeaderBackground : COLORS.white};
   color: ${({ $darkMode }) => ($darkMode ? COLORS.white : COLORS.grey950)};
 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: auto;
 
   @media (min-width: 768px) {
     padding: 50px 90px;

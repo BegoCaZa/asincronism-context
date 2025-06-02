@@ -102,7 +102,7 @@ const Country = () => {
               Border Countries:
             </StyledBorderCountriesTitle>
             <StyledButtonsGrid>
-              {borderCountries.map(country => (
+              {borderCountries?.map(country => (
                 <StyledBorderCountryButton
                   key={country}
                   state={state}
