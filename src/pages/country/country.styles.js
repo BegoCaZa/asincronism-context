@@ -78,6 +78,7 @@ export const StyledFlagImage = styled.img`
   height: auto;
   border-radius: 8px;
   margin-bottom: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 
   @media (min-width: 768px) {
     border-radius: 18px;
@@ -186,6 +187,7 @@ export const StyledButtonsGrid = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
+  flex-wrap: wrap;
 `;
 
 export const StyledBorderCountryButton = styled(Link)`

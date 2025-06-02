@@ -23,10 +23,15 @@ import { useContext } from 'react';
 import { DarkModeContext } from '../../lib/contexts/darkMode.context';
 const Country = () => {
   const { state } = useLocation();
+  const { country, countries } = state;
+  //saco toda la info del pais y los paises
 
   const { darkMode } = useContext(DarkModeContext);
 
-  const borderCountries = state.borders;
+  const borderCountries = country.borders?.map(borderCode =>
+    countries.find(c => c.cca3 === borderCode)
+  );
+
   console.log(borderCountries);
 
   console.log(state);
@@ -41,58 +46,58 @@ const Country = () => {
         </StyledBackButton>
       </StyledButtonContainer>
       <StyledCountryContainer>
-        <StyledFlagImage src={state.flags.svg} />
+        <StyledFlagImage src={country.flags.svg} />
 
         <StyledGeneralInfoContainer>
           <StyledNameContainer>
-            <StyledCountryName>{state.name.common}</StyledCountryName>
+            <StyledCountryName>{country.name.common}</StyledCountryName>
           </StyledNameContainer>
           <StyledCountryInfo>
             <StyledCountryData>
               <StyledDataItem>
                 <StyledInfoLabel>Native Name:</StyledInfoLabel>
                 <StyledInfo>
-                  {Object.values(state.name.nativeName)[0]?.common}
+                  {Object.values(country.name.nativeName)[0]?.common}
                 </StyledInfo>
               </StyledDataItem>
 
               <StyledDataItem>
                 <StyledInfoLabel>Population:</StyledInfoLabel>
-                <StyledInfo>{state.population}</StyledInfo>
+                <StyledInfo>{country.population}</StyledInfo>
               </StyledDataItem>
 
               <StyledDataItem>
                 <StyledInfoLabel>Region:</StyledInfoLabel>
-                <StyledInfo>{Object.values(state.region)}</StyledInfo>
+                <StyledInfo>{Object.values(country.region)}</StyledInfo>
               </StyledDataItem>
 
               <StyledDataItem>
                 <StyledInfoLabel>Sub Region:</StyledInfoLabel>
-                <StyledInfo>{Object.values(state.subregion)}</StyledInfo>
+                <StyledInfo>{Object.values(country.subregion)}</StyledInfo>
               </StyledDataItem>
 
               <StyledDataItem>
                 <StyledInfoLabel>Capital:</StyledInfoLabel>
-                <StyledInfo>{Object.values(state.capital)}</StyledInfo>
+                <StyledInfo>{Object.values(country.capital)}</StyledInfo>
               </StyledDataItem>
             </StyledCountryData>
 
             <StyledCountryData>
               <StyledDataItem>
                 <StyledInfoLabel>Top Level Domain:</StyledInfoLabel>
-                <StyledInfo>{state.tld}</StyledInfo>
+                <StyledInfo>{country.tld}</StyledInfo>
               </StyledDataItem>
 
               <StyledDataItem>
                 <StyledInfoLabel>Currencies:</StyledInfoLabel>
                 <StyledInfo>
-                  {Object.values(state.currencies)[0].name}
+                  {Object.values(country.currencies)[0].name}
                 </StyledInfo>
               </StyledDataItem>
 
               <StyledDataItem>
                 <StyledInfoLabel>Languages:</StyledInfoLabel>
-                <StyledInfo>{Object.values(state.languages)}</StyledInfo>
+                <StyledInfo>{Object.values(country.languages)}</StyledInfo>
               </StyledDataItem>
             </StyledCountryData>
           </StyledCountryInfo>
@@ -102,14 +107,14 @@ const Country = () => {
               Border Countries:
             </StyledBorderCountriesTitle>
             <StyledButtonsGrid>
-              {borderCountries?.map(country => (
+              {borderCountries?.map(borderCountry => (
                 <StyledBorderCountryButton
-                  key={country}
-                  state={state}
+                  key={borderCountry.cca3}
+                  to={`/country/${borderCountry.name.common.toLowerCase()}`}
                   $darkMode={darkMode}
-                  to={`/country/${country}`}
+                  state={{ country: borderCountry, countries }}
                 >
-                  {country}
+                  {borderCountry.name.common}
                 </StyledBorderCountryButton>
               ))}
             </StyledButtonsGrid>

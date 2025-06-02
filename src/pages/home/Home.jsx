@@ -39,7 +39,7 @@ const Home = () => {
           <StyledLink
             key={country.name.common}
             to={`/country/${country.name.common.toLowerCase()}`}
-            state={country}
+            state={{ country, countries }}
           >
             <CountryCard country={country} />
           </StyledLink>
